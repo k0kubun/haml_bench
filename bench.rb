@@ -27,8 +27,8 @@ Benchmark.ips do |x|
     def run_hamlit; #{Hamlit::Engine.new.call(haml_code)}; end
   ]
 
-  x.report("haml #{Haml::VERSION}")     { context.run_haml }
   x.report("haml #{Haml4::VERSION}")    { context.run_haml4 }
+  x.report("haml #{Haml::VERSION}")     { context.run_haml }
   x.report("faml #{Faml::VERSION}")     { context.run_faml }
   x.report("hamlit #{Hamlit::VERSION}") { context.run_hamlit }
   x.compare!

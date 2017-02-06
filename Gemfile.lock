@@ -1,0 +1,22 @@
+GIT
+  remote: https://github.com/haml/haml
+  revision: e9141f5ec648fa78b4a2505195f0991dd640aece
+  specs:
+    haml (5.0.0.beta.2)
+      temple (>= 0.7.6)
+      tilt
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    temple (0.7.7)
+    tilt (2.0.6)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  haml!
+
+BUNDLED WITH
+   1.14.3

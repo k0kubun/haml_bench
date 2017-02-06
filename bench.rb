@@ -33,4 +33,5 @@ Benchmark.ips do |x|
     x.report("faml #{Faml::VERSION}")     { context.run_faml }
     x.report("hamlit #{Hamlit::VERSION}") { context.run_hamlit }
   end
+  x.compare!
 end

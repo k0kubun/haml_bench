@@ -15,3 +15,7 @@ gem 'hamlit'
 
 gem 'rake'
 gem 'benchmark-ips'
+
+group :development do
+  gem 'pry'
+end

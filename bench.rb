@@ -29,7 +29,8 @@ Benchmark.ips do |x|
 
   x.report("haml #{Haml4::VERSION}")    { context.run_haml4 }
   x.report("haml #{Haml::VERSION}")     { context.run_haml }
-  x.report("faml #{Faml::VERSION}")     { context.run_faml }
-  x.report("hamlit #{Hamlit::VERSION}") { context.run_hamlit }
-  x.compare!
+  if ENV['BENCH_ALL'] == '1'
+    x.report("faml #{Faml::VERSION}")     { context.run_faml }
+    x.report("hamlit #{Hamlit::VERSION}") { context.run_hamlit }
+  end
 end

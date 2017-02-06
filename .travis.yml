@@ -10,3 +10,4 @@ branches:
     - master
 script:
   - 'bundle exec ruby bench.rb'
+  - 'BENCH_ALL=1 bundle exec ruby bench.rb'

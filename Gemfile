@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
-system('rake haml4') # for travis
+unless File.exist?('haml4')
+  system('rake haml4') # for travis
+end
+
 gem 'haml4', path: 'haml4'
 gem 'haml', git: 'https://github.com/haml/haml'
 gem 'faml'

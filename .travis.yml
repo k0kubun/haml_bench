@@ -4,11 +4,15 @@ branches:
   only:
     - master
 script:
-  - 'bundle exec ruby bench.rb'
-  - 'BENCH_ALL=1 bundle exec ruby bench.rb'
+  - "bundle exec ruby $HAML"
+  - "BENCH_ALL=1 bundle exec ruby $HAML"
 matrix:
   include:
     - rvm: 2.1.10
+      env: HAML=templates/view.haml
     - rvm: 2.2.6
+      env: HAML=templates/view.haml
     - rvm: 2.3.3
+      env: HAML=templates/view.haml
     - rvm: 2.4.0
+      env: HAML=templates/view.haml

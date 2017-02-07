@@ -17,7 +17,7 @@ class Context
 end
 
 Benchmark.ips do |x|
-  haml_code = File.read("#{__dir__}/templates/view.haml")
+  haml_code = File.read("#{__dir__}/#{ARGV.first || 'templates/view.haml'}")
   context = Context.new
 
   buffer_options = { ugly: true, escape_html: true }

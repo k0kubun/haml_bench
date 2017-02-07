@@ -13,9 +13,6 @@ gem 'haml4', path: 'haml4'
 gem 'faml'
 gem 'hamlit'
 
-gem 'rake'
 gem 'benchmark-ips'
-
-group :development do
-  gem 'pry'
-end
+gem 'pry'
+gem 'rake'

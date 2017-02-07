@@ -11,6 +11,9 @@ end
 haml_src = Haml::Engine.new(haml_code, buffer_options.merge(format: :html5)).compiler.precompiled_with_ambles([])
 hamlit_src = Hamlit::Engine.new.call(haml_code)
 
+puts "=============================[source]==================================="
+puts haml_code
+puts
 puts "=============================[hamlit]==================================="
 puts Pry.Code(hamlit_src).highlighted
 puts

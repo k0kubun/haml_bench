@@ -9,10 +9,10 @@ script:
 matrix:
   include:
     - rvm: 2.1.10
-      env: HAML=templates/view.haml
+      env: HAML=templates/slim_bench.haml
     - rvm: 2.2.6
-      env: HAML=templates/view.haml
+      env: HAML=templates/slim_bench.haml
     - rvm: 2.3.3
-      env: HAML=templates/view.haml
+      env: HAML=templates/slim_bench.haml
     - rvm: 2.4.0
-      env: HAML=templates/view.haml
+      env: HAML=templates/slim_bench.haml

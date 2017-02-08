@@ -10,8 +10,9 @@ else
   gem 'haml', git: 'https://github.com/haml/haml'
 end
 gem 'haml4', path: 'haml4'
-gem 'faml'
 gem 'hamlit'
+gem 'faml'
+gem 'slim'
 
 gem 'benchmark-ips'
 gem 'pry'

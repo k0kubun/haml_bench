@@ -3,6 +3,7 @@ require 'haml4'
 require 'haml'
 require 'faml'
 require 'hamlit'
+require 'slim'
 
 class Context
   def header
@@ -34,11 +35,21 @@ Benchmark.ips do |x|
     def run_hamlit; #{Hamlit::Engine.new.call(haml_code)}; end
   ]
 
-  x.report("haml #{Haml4::VERSION}")    { context.run_haml4 }
-  x.report("haml #{Haml::VERSION}")     { context.run_haml }
+  slim_path = haml_path.sub(/\.haml\z/, '.slim')
+  slim_available = File.exist?(slim_path)
+  if slim_available
+    slim_code = File.read(slim_path)
+    context.instance_eval("def run_slim; #{Slim::Engine.new.call(slim_code)}; end")
+  end
+
+  x.report("haml #{Haml4::VERSION}")      { context.run_haml4 }
+  x.report("haml #{Haml::VERSION}")       { context.run_haml }
   if ENV['BENCH_ALL'] == '1'
     x.report("faml #{Faml::VERSION}")     { context.run_faml }
     x.report("hamlit #{Hamlit::VERSION}") { context.run_hamlit }
+    if slim_available
+      x.report("slim #{Slim::VERSION}")   { context.run_slim }
+    end
   end
   x.compare!
 end

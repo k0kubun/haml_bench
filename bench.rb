@@ -42,8 +42,6 @@ Benchmark.ips do |x|
     context.instance_eval("def run_slim; #{Slim::Engine.new.call(slim_code)}; end")
   end
 
-  puts "Static Analyzer Availability: #{Haml::AttributeParser.available?}"
-
   x.report("haml #{Haml4::VERSION}")      { context.run_haml4 }
   x.report("haml #{Haml::VERSION}")       { context.run_haml }
   if ENV['BENCH_ALL'] == '1'

@@ -16,5 +16,9 @@ matrix:
       env: HAML=templates/slim_bench.haml
     - rvm: 2.4.0
       env: HAML=templates/slim_bench.haml
+    - rvm: jruby-9.1.7.0
+      env: HAML=templates/slim_bench.haml
     - rvm: 2.4.0
+      env: HAML=templates/static_analyzer.haml
+    - rvm: jruby-9.1.7.0
       env: HAML=templates/static_analyzer.haml

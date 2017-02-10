@@ -10,8 +10,6 @@ else
   gem 'haml', git: 'https://github.com/k0kubun/haml', branch: 'attribute-compiler'
 end
 gem 'haml4', path: 'haml4'
-gem 'hamlit'
-gem 'faml'
 gem 'slim'
 
 gem 'benchmark-ips'

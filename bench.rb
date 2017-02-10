@@ -1,8 +1,6 @@
 require 'benchmark/ips'
 require 'haml4'
 require 'haml'
-require 'faml'
-require 'hamlit'
 require 'slim'
 
 class Context
@@ -30,10 +28,6 @@ Benchmark.ips do |x|
   end
   Haml::Engine.new(haml_code, buffer_options.merge(format: :html5)).def_method(context, :run_haml)
   Haml4::Engine.new(haml_code, format: :html5, ugly: true, escape_html: true).def_method(context, :run_haml4)
-  context.instance_eval %Q[
-    def run_faml; #{Faml::Engine.new.call(haml_code)}; end
-    def run_hamlit; #{Hamlit::Engine.new.call(haml_code)}; end
-  ]
 
   slim_path = haml_path.sub(/\.haml\z/, '.slim')
   slim_available = File.exist?(slim_path)
@@ -47,8 +41,6 @@ Benchmark.ips do |x|
   x.report("haml #{Haml4::VERSION}")      { context.run_haml4 }
   x.report("haml #{Haml::VERSION}")       { context.run_haml }
   if ENV['BENCH_ALL'] == '1'
-    x.report("faml #{Faml::VERSION}")     { context.run_faml }
-    x.report("hamlit #{Hamlit::VERSION}") { context.run_hamlit }
     if slim_available
       x.report("slim #{Slim::VERSION}")   { context.run_slim }
     end

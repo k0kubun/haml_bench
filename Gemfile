@@ -12,7 +12,7 @@ end
 gem 'haml4', path: 'haml4'
 gem 'hamlit'
 gem 'faml'
-gem 'slim', git: 'https://github.com/k0kubun/slim'
+gem 'slim', git: 'https://github.com/slim-template/slim'
 
 gem 'benchmark-ips'
 gem 'pry'

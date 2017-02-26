@@ -4,6 +4,7 @@ require 'haml'
 require 'faml'
 require 'hamlit'
 require 'slim'
+require 'erubi'
 
 class Context
   def header
@@ -42,6 +43,13 @@ Benchmark.ips do |x|
     context.instance_eval("def run_slim; #{Slim::Engine.new.call(slim_code)}; end")
   end
 
+  erb_path = haml_path.sub(/\.haml\z/, '.erb')
+  erb_available = File.exist?(erb_path)
+  if erb_available
+    erb_code = File.read(erb_path)
+    context.instance_eval("def run_erubi; #{Erubi::Engine.new(erb_code).src}; end")
+  end
+
   x.report("haml #{Haml4::VERSION}")      { context.run_haml4 }
   x.report("haml #{Haml::VERSION}")       { context.run_haml }
   if ENV['BENCH_ALL'] == '1'
@@ -49,6 +57,9 @@ Benchmark.ips do |x|
     x.report("hamlit #{Hamlit::VERSION}") { context.run_hamlit }
     if slim_available
       x.report("slim #{Slim::VERSION}")   { context.run_slim }
+    end
+    if erb_available
+      x.report('erubi 1.5.0') { context.run_erubi }
     end
   end
   x.compare!

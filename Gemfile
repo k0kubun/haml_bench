@@ -13,6 +13,7 @@ gem 'haml4', path: 'haml4'
 gem 'hamlit'
 gem 'faml'
 gem 'slim', git: 'https://github.com/slim-template/slim'
+gem 'erubi', git: 'https://github.com/jeremyevans/erubi'
 
 gem 'benchmark-ips'
 gem 'pry'

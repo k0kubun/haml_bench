@@ -4,7 +4,7 @@ require 'hamlit'
 
 haml_code = File.read("#{__dir__}/#{ARGV.first || 'templates/slim_bench.haml'}")
 
-buffer_options = { ugly: true, escape_html: true }
+buffer_options = { escape_html: true }
 if Haml::Options.respond_to?(:buffer_defaults)
   Haml::Options.buffer_defaults.merge!(buffer_options)
 end

@@ -24,7 +24,7 @@ Benchmark.ips do |x|
   haml_code = File.read(haml_path)
   context = Context.new
 
-  buffer_options = { ugly: true, escape_html: true }
+  buffer_options = { escape_html: true }
   if Haml::Options.respond_to?(:buffer_defaults)
     Haml::Options.buffer_defaults.merge!(buffer_options)
   end

@@ -1,5 +1,5 @@
 file :haml4 do
-  system("git clone --branch stable --depth=1 https://github.com/haml/haml haml4")
+  system('git clone https://github.com/haml/haml haml4 && git -C haml4 reset --hard 4.0.7')
   Dir.chdir('haml4') do
     `git grep --name-only "require \\('\\|\\"\\)haml"`.split("\n").each do |file|
       src = File.read(file)

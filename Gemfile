@@ -7,7 +7,7 @@ end
 if ENV.key?('HAML_PATH')
   gem 'haml', path: ENV['HAML_PATH']
 else
-  gem 'haml', git: 'https://github.com/haml/haml'
+  gem 'haml', '5.0.0.beta.2'
 end
 gem 'haml4', path: 'haml4'
 gem 'hamlit'

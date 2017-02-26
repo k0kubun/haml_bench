@@ -23,6 +23,7 @@ file :haml4 do
       'haml.gemspec' => 'haml4.gemspec',
       'lib/haml.rb'  => 'lib/haml4.rb',
       'lib/haml'     => 'lib/haml4',
+      'bin/haml'     => 'bin/haml4',
     }.each do |from, to|
       system("mv #{from} #{to}")
     end
